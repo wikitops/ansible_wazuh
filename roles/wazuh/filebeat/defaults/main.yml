@@ -1,0 +1,11 @@
+---
+
+###
+# ELASTIC
+###
+
+# Logstash
+wazuh_logstash_port: 5000
+
+# Filebeat
+wazuh_filebeat_inputs_path: /opt/filebeat/inputs/

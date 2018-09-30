@@ -1,0 +1,7 @@
+---
+
+- name: Restart wazuh-api
+  systemd:
+    name: wazuh-api
+    state: restarted
+    enabled: yes

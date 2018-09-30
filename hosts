@@ -1,0 +1,20 @@
+[wazuh-server]
+10.0.4.181
+
+[wazuh-agent]
+10.0.4.191
+
+# This group is needed to configure Elasticsearch
+# This can be the same host as wazuh-server
+[elasticsearch]
+
+# This group is needed to configure Filebeat
+# Not needed if Wazuh is installed on the Elasticsearch server
+[filebeat]
+
+# This group is needed to configure Kibana
+[kibana]
+
+# This group is needed to configure Logstash
+# This can be the same host as wazuh-server
+[logstash]

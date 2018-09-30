@@ -1,0 +1,9 @@
+---
+
+- name: WAZUH AGENT ON REDHAT | Add repository
+  yum_repository:
+    name: wazuh
+    description: Elastic repository for 6.x packages
+    baseurl: "{{ wazuh_agent_yum_repository }}"
+    gpgcheck: yes
+    gpgkey: "{{ wazuh_agent_yum_key }}"

@@ -1,0 +1,29 @@
+---
+
+- name: WAZUH AGENT | Manage Debian environment
+  import_tasks: debian.yml
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
+
+- name: WAZUH AGENT | Manage Redhat environment
+  import_tasks: redhat.yml
+  when: ansible_os_family == 'RedHat' or ansible_os_family == 'CentOS'
+
+- name: WAZUH AGENT | Installation
+  package:
+    name: "wazuh-agent={{ wazuh_agent_version }}*"
+    update_cache: yes
+    state: present
+  notify: Restart wazuh-agent
+  tags: update-wazuh_agent
+
+- name: WAZUH AGENT | Configuation
+  template:
+    src: var/ossec/etc/ossec.conf.j2
+    dest: /var/ossec/etc/ossec.conf
+    owner: root
+    group: root
+    mode: 0640
+  notify: Restart wazuh-agent
+  tags:
+    - update-wazuh_agent
+    - update-wazuh_agent-config

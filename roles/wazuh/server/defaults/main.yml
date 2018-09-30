@@ -1,0 +1,51 @@
+---
+
+###
+# WAZUH
+###
+
+# Version
+wazuh_server_version: 3.6.1
+
+# Debian
+wazuh_server_apt_key: https://packages.wazuh.com/key/GPG-KEY-WAZUH
+wazuh_server_apt_repository: "deb https://packages.wazuh.com/3.x/apt/ stable main"
+
+# RedHat
+wazuh_server_yum_key: https://packages.wazuh.com/key/GPG-KEY-WAZUH
+wazuh_server_yum_repository: https://artifacts.elastic.co/packages/6.x/yum
+
+# Global configuration
+wazuh_global_jsonout_output: yes
+wazuh_global_alerts_log: yes
+wazuh_global_logall: no
+wazuh_global_logall_json: no
+wazuh_global_email_notification: no
+wazuh_global_smtp_server: smtp.example.wazuh.com
+wazuh_global_email_from: ossecm@example.wazuh.com
+wazuh_global_email_to: recipient@example.wazuh.com
+wazuh_global_email_maxperhour: 12
+wazuh_global_queue_size: 131072
+
+# Alerts configuration
+wazuh_alerts_log_alert_level: 3
+wazuh_email_alert_level: 12
+
+# Logging configuration
+wazuh_logging_log_format: plain
+
+# Remote configuration
+wazuh_remote_connection: secure
+wazuh_remote_port: 1514
+wazuh_remote_protocol: udp
+wazuh_remote_queue_size: 131072
+
+# CLuster configuration
+wazuh_cluster_name: wazuh
+wazuh_cluster_node_name: "{{ ansible_hostname }}"
+wazuh_cluster_node_type: master
+wazuh_cluster_key: ""
+wazuh_cluster_port: 1516
+wazuh_cluster_bind_addr: 0.0.0.0
+wazuh_cluster_hidden: no
+wazuh_cluster_disabled: yes

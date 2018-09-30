@@ -1,0 +1,16 @@
+---
+
+###
+# WAZUH
+###
+
+# Version
+wazuh_api_version: 3.6.1
+
+# Debian
+wazuh_api_apt_key: https://packages.wazuh.com/key/GPG-KEY-WAZUH
+wazuh_api_apt_repository: "deb https://packages.wazuh.com/3.x/apt/ stable main"
+
+# RedHat
+wazuh_api_yum_key: https://packages.wazuh.com/key/GPG-KEY-WAZUH
+wazuh_api_yum_repository: https://artifacts.elastic.co/packages/6.x/yum

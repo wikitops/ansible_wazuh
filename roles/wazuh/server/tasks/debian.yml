@@ -1,0 +1,19 @@
+---
+
+- name: WAZUH SERVER ON DEBIAN | Install prerequisites
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - ca-certificates
+    - apt-transport-https
+
+- name: WAZUH SERVER ON DEBIAN | Import key
+  apt_key:
+    url: "{{ wazuh_server_apt_key }}"
+    state: present
+
+- name: WAZUH SERVER ON DEBIAN | Add repository
+  apt_repository:
+    repo: "{{ wazuh_server_apt_repository }}"
+    state: present

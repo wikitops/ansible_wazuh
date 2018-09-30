@@ -1,0 +1,16 @@
+---
+
+- name: WAZUH ELASTIC LOGSTASH | Download pipeline file definition
+  get_url:
+    url: "{{ wazuh_logstash_pipeline_url }}"
+    dest: "{{ wazuh_logstash_pipeline_path }}/01-wazuh.conf"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: WAZUH ELASTIC LOGSTASH | Manage user
+  user:
+    name: "{{ wazuh_logstash_user }}"
+    groups: ossec
+    append: yes
+  when: wazuh-server in groups['logstash']

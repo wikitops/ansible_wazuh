@@ -1,0 +1,6 @@
+---
+
+- name: WAZUH ELASTIC ELASTICSEARCH | Manage template
+  shell: >
+    curl {{ wazuh_elasticsearch_template_url }} |
+    curl -XPUT 'http://{{ wazuh_elasticsearch_host }}:{{ wazuh_elasticsearch_port }}/_template/{{ wazuh_elasticsearch_template_name }}' -H 'Content-Type: application/json' -d @-

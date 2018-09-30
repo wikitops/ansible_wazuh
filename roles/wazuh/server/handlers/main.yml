@@ -1,0 +1,7 @@
+---
+
+- name: Restart wazuh-server
+  systemd:
+    name: wazuh-manager
+    state: restarted
+    enabled: yes

@@ -1,0 +1,19 @@
+---
+
+- name: WAZUH API ON DEBIAN | Install prerequisites
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - ca-certificates
+    - apt-transport-https
+
+- name: WAZUH API ON DEBIAN | Import key
+  apt_key:
+    url: "{{ wazuh_api_apt_key }}"
+    state: present
+
+- name: WAZUH API ON DEBIAN | Add repository
+  apt_repository:
+    repo: "{{ wazuh_api_apt_repository }}"
+    state: present

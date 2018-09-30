@@ -1,0 +1,10 @@
+---
+
+###
+# ELASTIC
+###
+
+# Logstash
+wazuh_logstash_user: logstash
+wazuh_logstash_pipeline_path: "/opt/logstash/pipeline"
+wazuh_logstash_pipeline_url: "https://raw.githubusercontent.com/wazuh/wazuh/3.6/extensions/logstash/01-wazuh-local.conf"

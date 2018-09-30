@@ -1,0 +1,11 @@
+---
+
+- name: WAZUH ELASTIC FILEBEAT | Manage parser
+  template:
+    src: opt/filebeat/inputs/wazuh.yml.j2
+    dest: "{{ wazuh_filebeat_inputs_path }}/wazuh.yml"
+    owner: root
+    group: root
+    mode: 0644
+  when: wazuh-server not in groups["logstash"]
+  notify: Restart filebeat

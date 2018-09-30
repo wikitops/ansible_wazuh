@@ -1,0 +1,11 @@
+---
+
+###
+# ELASTIC
+###
+
+# Elasticsearch
+wazuh_elasticsearch_host: "{{ groups['elasticsearch'][0] }}"
+wazuh_elasticsearch_port: 9200
+wazuh_elasticsearch_template_name: wazuh
+wazuh_elasticsearch_template_url: "https://raw.githubusercontent.com/wazuh/wazuh/3.6/extensions/elasticsearch/wazuh-elastic6-template-alerts.json"

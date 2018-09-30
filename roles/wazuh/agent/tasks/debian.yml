@@ -1,0 +1,20 @@
+---
+
+- name: WAZUH AGENT ON DEBIAN | Install prerequisites
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - curl
+    - apt-transport-https
+    - lsb-release
+
+- name: WAZUH AGENT ON DEBIAN | Import key
+  apt_key:
+    url: "{{ wazuh_agent_apt_key }}"
+    state: present
+
+- name: WAZUH AGENT ON DEBIAN | Add repository
+  apt_repository:
+    repo: "{{ wazuh_agent_apt_repository }}"
+    state: present

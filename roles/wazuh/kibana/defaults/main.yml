@@ -1,0 +1,16 @@
+---
+
+###
+# WAZUH
+###
+
+# Version
+wazuh_version: 3.6.1
+
+###
+# ELASTIC
+###
+
+# Kibana
+wazuh_kibana_version: "6.4.1"
+wazuh_kibana_plugin_url: "https://packages.wazuh.com/wazuhapp/wazuhapp-{{ wazuh_version }}_{{ wazuh_kibana_version }}.zip"

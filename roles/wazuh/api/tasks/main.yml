@@ -1,0 +1,17 @@
+---
+
+- name: WAZUH API | Manage Debian environment
+  import_tasks: debian.yml
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
+
+- name: WAZUH API | Manage Redhat environment
+  import_tasks: redhat.yml
+  when: ansible_os_family == 'RedHat' or ansible_os_family == 'CentOS'
+
+- name: WAZUH API | Installation
+  package:
+    name: "wazuh-api={{ wazuh_api_version }}*"
+    update_cache: yes
+    state: present
+  notify: Restart wazuh-api
+  tags: update-wazuh_api

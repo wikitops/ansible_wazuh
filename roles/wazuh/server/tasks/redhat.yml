@@ -1,0 +1,9 @@
+---
+
+- name: WAZUH SERVER ON REDHAT | Add repository
+  yum_repository:
+    name: wazuh
+    description: Elastic repository for 6.x packages
+    baseurl: "{{ wazuh_server_yum_repository }}"
+    gpgcheck: yes
+    gpgkey: "{{ wazuh_server_yum_key }}"

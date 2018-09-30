@@ -1,0 +1,20 @@
+---
+
+###
+# WAZUH
+###
+
+# Version
+wazuh_agent_version: 3.6.1
+
+# Debian
+wazuh_agent_apt_key: https://packages.wazuh.com/key/GPG-KEY-WAZUH
+wazuh_agent_apt_repository: "deb https://packages.wazuh.com/3.x/apt/ stable main"
+
+# RedHat
+wazuh_agent_yum_key: https://packages.wazuh.com/key/GPG-KEY-WAZUH
+wazuh_agent_yum_repository: https://artifacts.elastic.co/packages/6.x/yum
+
+# Manager
+wazuh_server_ip: "{{ groups['wazuh-server'][0] }}"
+wazuh_server_port: 1514

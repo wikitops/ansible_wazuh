@@ -1,0 +1,19 @@
+filebeat:
+ prospectors:
+  - type: log
+    paths:
+     - "/var/ossec/logs/alerts/alerts.json"
+    document_type: json
+    json.message_key: log
+    json.keys_under_root: true
+    json.overwrite_keys: true
+
+output:
+ logstash:
+   # The Logstash hosts
+   hosts:
+{% for host in groups['logstash'] %}
+    - "{{ host }}:{{ wazuh_logstash_host }}"
+{% endfor %}
+#   ssl:
+#     certificate_authorities: ["/etc/filebeat/logstash.crt"]

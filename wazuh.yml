@@ -1,0 +1,38 @@
+---
+
+- hosts: wazuh-server
+  remote_user: vagrant
+  become: yes
+  roles:
+    - wazuh/server
+    - wazuh/api
+
+- hosts: all:!wazuh-server
+  remote_user: vagrant
+  become: yes
+  roles:
+    - wazuh/agent
+
+- hosts: elasticsearch
+  remote_user: vagrant
+  become: yes
+  roles:
+    - wazuh/elasticsearch
+
+- hosts: kibana
+  remote_user: vagrant
+  become: yes
+  roles:
+    - wazuh/kibana
+
+- hosts: logstash
+  remote_user: vagrant
+  become: yes
+  roles:
+    - wazuh/logstash
+
+- hosts: filebeat
+  remote_user: vagrant
+  become: yes
+  roles:
+    - wazuh/filebeat

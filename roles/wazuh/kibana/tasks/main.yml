@@ -1,0 +1,8 @@
+---
+
+- name: WAZUH ELASTIC KIBANA | Install plugin
+  kibana_plugin:
+    name: wazuh
+    state: present
+    url: "{{ wazuh_kibana_plugin_url }}"
+  notify: Restart kibana
